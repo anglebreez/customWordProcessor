@@ -1,13 +1,14 @@
 import { Editor, EditorState, convertToRaw } from "draft-js";
 import "draft-js/dist/Draft.css"; // Import default Draft.js styles
 import React, { useState } from "react";
-import { Document, Packer, Paragraph, Header } from "docx";
+import { Document, Packer, Paragraph, Header, Footer } from "docx";
 import "./App.css"; // our app styles
 import { saveAs } from "file-saver";
 
 function App() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const headerText = "boooooom our header text";
+  const footerText = "boooooom our footer text"; // you can create  a state var and can show modal to take by user or make the div editable
 
   const downloadDoc = () => {
     const contentState = editorState.getCurrentContent(); // content state of editor
@@ -23,10 +24,20 @@ function App() {
       sections: [
         {
           headers: {
-            default: new Header({
+            default: new Header({ // this is our header
               children: [
                 new Paragraph({
                   text: headerText,
+                  alignment: "center",
+                }),
+              ],
+            }),
+          },
+          footers: {
+            default: new Footer({ // this is our footer
+              children: [
+                new Paragraph({
+                  text: footerText,
                   alignment: "center",
                 }),
               ],
@@ -53,6 +64,9 @@ function App() {
           <p>{headerText}</p>
         </div>
         <Editor editorState={editorState} onChange={setEditorState} />
+        <div className="page-footer">
+          <p>{footerText}</p>
+        </div>
       </div>
     </div>
   );
