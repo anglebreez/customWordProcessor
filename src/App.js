@@ -9,6 +9,8 @@ function App() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const headerText = "boooooom our header text";
   const footerText = "boooooom our footer text"; // you can create  a state var and can show modal to take by user or make the div editable
+  const pageNumber = 'Page 1'
+
 
   const downloadDoc = () => {
     const contentState = editorState.getCurrentContent(); // content state of editor
@@ -38,9 +40,13 @@ function App() {
             default: new Footer({
               // this is our footer
               children: [
-                new Paragraph({
+                new Paragraph({ // this is our footer child one for footnotes
                   text: footerText,
-                  alignment: "center",
+                  alignment: "left",
+                }),
+                new Paragraph({ // this is our footer child two for page number
+                  text: pageNumber,
+                  alignment: "right",
                 }),
               ],
             }),
@@ -68,6 +74,7 @@ function App() {
         <Editor editorState={editorState} onChange={setEditorState} />
         <div className="page-footer">
           <p>{footerText}</p>
+          <p>{pageNumber}</p>
         </div>
       </div>
     </div>

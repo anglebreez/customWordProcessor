@@ -25,7 +25,7 @@ div.public-DraftEditor-content {
   min-height: 400px;
 }
 
-.document-editor .page-header, .document-editor .page-footer {
+.document-editor .page-header{
   margin-top: 5px;
   margin-bottom: 5px;
   display: flex;
@@ -33,6 +33,13 @@ div.public-DraftEditor-content {
   align-items: center;
   color: #6666666b;
   width: 100%;
+}
+
+.document-editor .page-footer{
+  color: #6666666b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .btn {
