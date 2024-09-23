@@ -24,7 +24,8 @@ function App() {
       sections: [
         {
           headers: {
-            default: new Header({ // this is our header
+            default: new Header({
+              // this is our header
               children: [
                 new Paragraph({
                   text: headerText,
@@ -34,7 +35,8 @@ function App() {
             }),
           },
           footers: {
-            default: new Footer({ // this is our footer
+            default: new Footer({
+              // this is our footer
               children: [
                 new Paragraph({
                   text: footerText,
